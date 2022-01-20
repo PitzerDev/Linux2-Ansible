@@ -1,0 +1,14 @@
+---
+
+- name: Linux 2 Server CIS Configuration
+  hosts: localhost
+  gather_facts: true
+  become: yes
+  become_user: root
+
+  roles:
+    - { role: ansible-cis-amazon-linux-2,
+        in_vm: true,
+        cis_level_1_exclusions: [ 1.1.2, 3.5.1.1, 3.5.1.2, 3.5.1.3, 3.5.1.4, 3.5.2.1, 3.5.2.2, 3.5.2.3, 3.5.2.4, 3.5.3 ]
+
+    }

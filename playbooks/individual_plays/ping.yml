@@ -1,0 +1,6 @@
+# ping.yaml
+---
+  - hosts: Linux2Servers
+    tasks:
+      - name: Ping Linux 2 Servers
+        action: ping

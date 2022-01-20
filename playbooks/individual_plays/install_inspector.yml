@@ -1,0 +1,16 @@
+---
+
+- name: Linux 2 Server CIS Configuration
+  hosts: Linux2Servers
+  gather_facts: true
+  become: yes
+  become_user: root
+
+  tasks:
+  - name: Downloading AWS Inspector Agent
+    command:
+      cmd: wget https://inspector-agent.amazonaws.com/linux/latest/install
+  
+  - name: Installing AWS Inspector Agent
+    command:
+      cmd: sudo bash install
