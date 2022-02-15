@@ -1,0 +1,34 @@
+---
+
+# 1.1.13 Ensure separate partition exists for /home (Scored)
+
+- name: 1.1.13 Ensure separate partition exists for /home (Scored)
+  mount:
+    name: "{{ item.mountpoint }}"
+    state: present
+    fstype: "{{item.fstype}}"
+    src: "{{item.device}}"
+  with_items:
+    - { mountpoint: "{{cis_partition_mnt_home}}", device: "{{cis_partition_dev_home}}", fstype: "{{cis_partition_fs_home}}" }
+  tags:
+      - level-1
+      - section-1
+      - "1.1.11"
+      - scored
+
+# 1.1.18 Ensure nodev option set on /home partition
+
+- name: 1.1.18 - Ensure nodev option set on /home partition
+  mount:
+    name: "{{ item.mountpoint }}"
+    state: mounted
+    fstype: "{{ item.fstype }}"
+    src: "{{ item.device }}"
+    opts: "{{ item.opts.split(',') | union(['nodev']) | join(',') }}"
+  when: item.mountpoint == '/home'
+  with_items: "{{ fs_mounts }}"
+  tags:
+    - level-1
+    - section-1
+    - "1.1.18"
+    - scored
