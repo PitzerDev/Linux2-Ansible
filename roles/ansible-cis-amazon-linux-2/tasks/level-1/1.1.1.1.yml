@@ -1,3 +1,6 @@
+---
+# Standards: 0.11
+
 # 1.1.1.1 - Ensure mounting of cramfs filesystems is disabled
 
 - name: 1.1.1.1 - Check if CIS modprobe configuration file exists
@@ -32,3 +35,4 @@
     - section-1
     - "1.1.1.1"
     - scored
+

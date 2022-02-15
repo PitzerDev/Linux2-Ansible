@@ -1,15 +1,16 @@
+# Standards: 0.11
 ---
 
-# 1.1.14 Ensure nosuid option set on /var/tmp partition
+# 1.1.14 Ensure nodev option set on /home partition
 
-- name: 1.1.14 - Ensure nosuid option set on /var/tmp partition
+- name: 1.1.14 - Ensure nodev option set on /home partition
   mount:
     name: "{{ item.mountpoint }}"
     state: mounted
     fstype: "{{ item.fstype }}"
     src: "{{ item.device }}"
-    opts: "{{ item.opts.split(',') | union(['nosuid']) | join(',') }}"
-  when: item.mountpoint == '/var/tmp'
+    opts: "{{ item.opts.split(',') | union(['nodev']) | join(',') }}"
+  when: item.mountpoint == '/home'
   with_items: "{{ fs_mounts }}"
   tags:
     - level-1
