@@ -6,6 +6,7 @@
 
 # In container, we're root already. We don't want to install sudo if we can help it
 - include: "run_updates.yml"
+  become: yes
 
 - include: "level-1.yml"
   become: no
