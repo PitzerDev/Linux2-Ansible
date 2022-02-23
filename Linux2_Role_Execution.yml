@@ -6,8 +6,6 @@
   become: yes
   become_user: root
 
-- import_playbook: "playbooks/individual_plays/run_updates.yml"
-
   roles:
     - { role: ansible-cis-amazon-linux-2,
         in_container: true,
