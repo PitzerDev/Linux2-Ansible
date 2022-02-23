@@ -1,29 +1,22 @@
 ---
 
-- name: Linux 2 Server CIS Configuration
-  hosts: localhost
-  gather_facts: true
-  become: yes
-  become_user: root
+- name: Updating yum packages
+  yum:
+    name: '*'
+    state: latest
 
-  tasks:
-  - name: Updating yum packages
-    yum:
-      name: '*'
-      state: latest
+- name: Install Python3
+  raw: yum -y install python3
 
-  - name: Install Python3
-    raw: yum -y install python3
+- name: Installing libselinux-python
+  yum:
+    name: libselinux-python
 
-  - name: Installing libselinux-python
-    yum:
-      name: libselinux-python
+- name: Install PIP
+  raw: yum -y install python3 python3-pip
 
-  - name: Install PIP
-    raw: yum -y install python3 python3-pip
+- name: Install Ansible?
+  raw: pip3 install ansible
 
-  - name: Install Ansible?
-    raw: pip3 install ansible
-
-  - name: Updating Jinja2
-    raw: yum -y install python3-jinja2
+- name: Updating Jinja2
+  raw: yum -y install python3-jinja2
