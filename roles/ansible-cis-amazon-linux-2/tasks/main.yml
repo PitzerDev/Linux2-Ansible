@@ -5,7 +5,7 @@
   when: cis_apply_level_1_profile or cis_apply_level_2_profile
 
 # In container, we're root already. We don't want to install sudo if we can help it
-#- include: "run_updates.yml"
+- include: "run_updates.yml"
 
 - include: "level-1.yml"
   become: no
