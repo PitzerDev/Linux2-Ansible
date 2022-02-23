@@ -10,8 +10,6 @@
     fstype: "{{item.fstype}}"
     src: "{{item.device}}"
     opts: "{{item.opts}}"
-  with_items:
-    - "{{ fs_mounts | selectattr('mountpoint', 'equalto', '/tmp') | list }}"
   tags:
       - level-1
       - section-1
