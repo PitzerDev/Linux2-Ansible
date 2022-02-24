@@ -26,5 +26,6 @@
   async: 1
   poll: 0
 
-- name: reset ssh connection to allow user changes to affect ansible user
-  ansible.builtin.meta: reset_connection
+- name: Reboot a slow machine that might have lots of updates to apply
+  reboot:
+    reboot_timeout: 3600
