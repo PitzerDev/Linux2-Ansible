@@ -27,7 +27,7 @@
   poll: 0
 
 - name: Wait for the reboot to complete if there was a change.
-  wait_for_connection:
+  wait_for:
     connect_timeout: 400
     sleep: 5
     delay: 5
