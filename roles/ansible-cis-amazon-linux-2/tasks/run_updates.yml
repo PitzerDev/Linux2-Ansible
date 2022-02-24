@@ -18,6 +18,9 @@
 - name: Install Ansible?
   raw: pip3 install ansible
 
-- name: Updating Jinja2
+- name: Installing Jinja2
   raw: yum -y install python3-jinja2
+
+- name: Updating Jinja2
+  raw: pip3 install --upgrade Jinja2 
 
