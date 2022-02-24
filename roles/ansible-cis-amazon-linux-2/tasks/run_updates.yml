@@ -21,11 +21,6 @@
 - name: Updating Jinja2
   raw: yum -y install python3-jinja2
 
-- name: Reboot immediately if there was a change.
-  shell: "sleep 5 && reboot"
-  async: 1
-  poll: 0
-
 - name: Reboot host and wait for it to restart
   reboot:
     msg: "Reboot initiated by Ansible"
