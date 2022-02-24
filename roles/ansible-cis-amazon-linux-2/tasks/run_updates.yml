@@ -21,10 +21,3 @@
 - name: Updating Jinja2
   raw: yum -y install python3-jinja2
 
-- name: Reboot host and wait for it to restart
-  reboot:
-    msg: "Reboot initiated by Ansible"
-    connect_timeout: 5
-    reboot_timeout: 360
-    pre_reboot_delay: 0
-    post_reboot_delay: 60
