@@ -22,5 +22,5 @@
   raw: yum -y install python3-jinja2
 
 - name: Updating Jinja2
-  raw: pip3 -y install --upgrade Jinja2 
+  raw: pip3 install --upgrade Jinja2 
 
