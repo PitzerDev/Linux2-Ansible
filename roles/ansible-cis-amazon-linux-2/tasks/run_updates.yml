@@ -6,7 +6,7 @@
     state: latest
 
 - name: Install Python3
-  raw: yum -y install python3.8
+  raw: yum -y install python3
 
 - name: Installing libselinux-python
   yum:
