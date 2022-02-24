@@ -26,6 +26,10 @@
   async: 1
   poll: 0
 
-- name: Reboot a slow machine that might have lots of updates to apply
+- name: Reboot host and wait for it to restart
   reboot:
-    reboot_timeout: 3600
+    msg: "Reboot initiated by Ansible"
+    connect_timeout: 5
+    reboot_timeout: 360
+    pre_reboot_delay: 0
+    post_reboot_delay: 60
