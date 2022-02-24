@@ -15,6 +15,8 @@
       - section-1
       - "1.1.2"
       - scored
+  with_items:
+    - "{{ fs_mounts | selectattr('mountpoint', 'equalto', '/tmp') | list }}"
 
 - name: 1.1.2 - Ensure the tmp.mount service is enabled for boot time auto-start
   systemd:
