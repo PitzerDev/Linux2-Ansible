@@ -26,9 +26,5 @@
   async: 1
   poll: 0
 
-- name: Wait for the reboot to complete if there was a change.
-  wait_for:
-    connect_timeout: 400
-    sleep: 5
-    delay: 5
-    timeout: 400
+- name: reset ssh connection to allow user changes to affect ansible user
+  ansible.builtin.meta: reset_connection
